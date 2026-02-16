@@ -1,5 +1,5 @@
-import { expect, test } from "../../fixtures/toDoFixtures.ts"; 
-import { ToDoItems } from "../../test-data/toDoItems.ts";
+import { expect, test } from "../../fixtures/toDoFixtures"; 
+import { ToDoItems } from "../../test-data/toDoItems";
 
 test.beforeEach(async ({ toDoPage }) => {
   await expect(toDoPage.toDoHeader).toBeVisible();
