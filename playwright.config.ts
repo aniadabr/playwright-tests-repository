@@ -11,7 +11,7 @@ export default defineConfig({
   reporter: [['html'], ['list']],
 
   use: {
-    baseURL: 'https://demo.playwright.dev/todomvc/',
+    baseURL: process.env.BASE_URL || 'https://demo.playwright.dev/todomvc/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',

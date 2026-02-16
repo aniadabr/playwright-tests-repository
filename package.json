@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:e2e": "npx playwright test",
+    "all:tests": "npx playwright test",
     "test:ui": "npx playwright --ui",
+    "smoke": "npx playwright test --grep @smoke",
+    "regression": "npx playwright test --grep @regression",
     "report": "playwright show-report"
   },
   "keywords": [],
