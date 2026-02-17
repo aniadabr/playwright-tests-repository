@@ -23,6 +23,7 @@ The project demonstrates clean architecture, Page Object Model, custom fixtures,
 - **Test data** separated from implementation
 
 Configuration includes:
+
 - Multi-browser execution (Chromium, Firefox)
 - Parallel locally, single worker + retries in CI
 - HTML reporting
@@ -63,6 +64,7 @@ npm run report
 ## CI
 
 Tests run automatically on:
+
 - Push to `main`
 - Pull requests
 

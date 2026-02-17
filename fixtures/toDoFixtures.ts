@@ -1,20 +1,20 @@
-import { test as base } from '@playwright/test';
-import { ToDoMainPage } from '../pages/toDoMainPage';
+import { test as base } from '@playwright/test'
+import { ToDoMainPage } from '@pages/toDoMainPage'
 
 type Fixtures = {
-  toDoPage: ToDoMainPage;
-};
+  toDoPage: ToDoMainPage
+}
 
 export const test = base.extend<Fixtures>({
   toDoPage: async ({ page }, use) => {
-    const toDoPage = new ToDoMainPage(page);
+    const toDoPage = new ToDoMainPage(page)
 
     await test.step('Open TodoMVC', async () => {
-      await toDoPage.goto();
-    });
+      await toDoPage.goto()
+    })
 
-    await use(toDoPage);
+    await use(toDoPage)
   },
-});
+})
 
-export { expect } from '@playwright/test';
+export { expect } from '@playwright/test'
