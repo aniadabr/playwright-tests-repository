@@ -4,6 +4,17 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Select test group'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - smoke
+          - regression
 jobs:
   test:
     timeout-minutes: 60
@@ -24,7 +35,14 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run playwright tests
-        run: npm run all:tests
+        run: |
+          if [ "${{ github.event.inputs.test_type }}" = "smoke" ]; then
+            npm run smoke
+          elif [ "${{ github.event.inputs.test_type }}" = "regression" ]; then
+            npm run regression
+          else
+            npm run all:tests
+          fi
 
       - name: Upload report
         if: always()
